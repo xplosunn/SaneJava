@@ -1,5 +1,7 @@
 # SaneJava
 
+[![Build Status](https://travis-ci.org/xplosunn/SaneJava.svg?branch=master)](https://travis-ci.org/xplosunn/SaneJava)
+
 This is a compiler plugin aimed at improving my quality of life when developing java. The name came from a joke. The
 only currently supported feature is checking that switches on enums are exhaustive. I do use linters such as Spotbugs 
 and PMD besides this in my projects.
