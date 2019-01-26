@@ -37,3 +37,8 @@ $ mvn compile
 $ mvn jar:jar
 $ javac -processorpath /target/sane-java-0.1.jar -Xplugin:SaneJava src/test/java/com/explosunn/sanejava/ExhaustiveEnumTest.java 
 ```
+
+## License
+
+Feel free to use it, fork it, distribute it or any other thing you want. The authors are not responsible for any usage
+or consequences thereof. 
