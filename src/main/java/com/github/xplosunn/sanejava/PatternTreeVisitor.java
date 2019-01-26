@@ -12,10 +12,6 @@ import java.util.stream.Collectors;
 
 public class PatternTreeVisitor extends TreePathScanner<Void, Void> {
 
-    public static String errorMessage(long line, String file) {
-        return "Found a non-exhaustive enum switch in " + file + ":" + line;
-    }
-
     private final SourcePositions sourcePositions;
     private final Trees trees;
     private final Types types;
@@ -47,7 +43,7 @@ public class PatternTreeVisitor extends TreePathScanner<Void, Void> {
         if (issueCount > 0) {
             String errorMessage = "Found " + issueCount + " issues.";
             System.out.println(errorMessage);
-            throw new RuntimeException(errorMessage);
+            throw new IssueFoundException(errorMessage);
         } else {
             System.out.println("Found no issues.");
         }
@@ -99,6 +95,16 @@ public class PatternTreeVisitor extends TreePathScanner<Void, Void> {
         // find offset of the specified AST node
         long position = sourcePositions.getStartPosition(currCompUnit, tree);
         return lineMap.getLineNumber(position);
+    }
+
+    public static String errorMessage(long line, String file) {
+        return "Found a non-exhaustive enum switch in " + file + ":" + line;
+    }
+
+    public static class IssueFoundException extends RuntimeException {
+        public IssueFoundException(String message) {
+            super(message);
+        }
     }
 
     private static class EnumMembersVisitor implements ElementVisitor<Void, Void> {

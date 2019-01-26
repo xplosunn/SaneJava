@@ -1,6 +1,7 @@
 # SaneJava
 
 [![Build Status](https://travis-ci.org/xplosunn/SaneJava.svg?branch=master)](https://travis-ci.org/xplosunn/SaneJava)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/051d728372604558ae93c5780acbcb34)](https://www.codacy.com/app/gi.ciberon/SaneJava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xplosunn/SaneJava&amp;utm_campaign=Badge_Grade)
 
 This is a compiler plugin aimed at improving my quality of life when developing java. The name came from a joke. The
 only currently supported feature is checking that switches on enums are exhaustive. I do use linters such as Spotbugs 
@@ -30,11 +31,11 @@ And one plugin configuration (within build):
 
 ## Requirements
 
-* JDK 8
+  * JDK 8
 
 ## Using directly on javac
 
-```
+```console
 $ mvn compile
 $ mvn jar:jar
 $ javac -processorpath /target/sane-java-0.1.jar -Xplugin:SaneJava src/test/java/com/explosunn/sanejava/ExhaustiveEnumTest.java 
