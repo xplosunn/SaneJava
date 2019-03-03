@@ -10,20 +10,18 @@ and PMD besides this in my projects.
 
 ## Adding to Maven
 
-**This does not actually work yet**
-
 You need to add two things into your "pom.xml" file. One dependency:
 
 ```
 <dependency>
     <groupId>com.github.xplosunn</groupId>
     <artifactId>sane-java</artifactId>
-    <version>0.1</version>
-    <scope>system</scope>
+    <version>0.0.1</version>
+    <scope>provided</scope>
 </dependency>
 ```
 
-And one plugin configuration (within build):
+And one maven-compiler-plugin configuration (within build):
 ```
 <compilerArgs>
     <arg>-Xplugin:SaneJava</arg>
@@ -39,10 +37,5 @@ And one plugin configuration (within build):
 ```console
 $ mvn compile
 $ mvn jar:jar
-$ javac -processorpath /target/sane-java-0.1.jar -Xplugin:SaneJava src/test/java/com/explosunn/sanejava/ExhaustiveEnumTest.java 
+$ javac -processorpath /target/sane-java-0.0.1.jar -Xplugin:SaneJava src/test/java/com/explosunn/sanejava/ExhaustiveEnumTest.java 
 ```
-
-## License
-
-Feel free to use it, fork it, distribute it or any other thing you want. The authors are not responsible for any usage
-or consequences thereof. 

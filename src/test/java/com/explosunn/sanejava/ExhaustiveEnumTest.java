@@ -38,7 +38,9 @@ public class ExhaustiveEnumTest {
         }
 
         assertEquals("Found a non-exhaustive enum switch in file://EnumTest.java:10", caughtOutput.get(1));
-        assertEquals(3, caughtOutput.size());
+        assertEquals("Found a non-exhaustive enum switch in file://EnumTest.java:49", caughtOutput.get(2));
+        assertEquals("Found 2 issues.", caughtOutput.get(3));
+        assertEquals(4, caughtOutput.size());
     }
 
     private String getFileFromResources(String fileName) throws FileNotFoundException {

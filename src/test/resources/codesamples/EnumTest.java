@@ -39,4 +39,20 @@ public class EnumTest {
 
         }
     }
+
+    public E e() {
+        return E.A;
+    }
+
+    public void badMethod(EnumTest t) {
+        try {
+            switch (t.e()) {
+                case A:
+                case B:
+                    return 1;
+                default:
+                    return 0;
+            }
+        } finally {}
+    }
 }
