@@ -10,6 +10,8 @@ import javax.lang.model.util.Types;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static javax.lang.model.element.ElementKind.ENUM_CONSTANT;
+
 public class PatternTreeVisitor extends TreePathScanner<Void, Void> {
 
     private final SourcePositions sourcePositions;
@@ -44,8 +46,6 @@ public class PatternTreeVisitor extends TreePathScanner<Void, Void> {
             String errorMessage = "Found " + issueCount + " issues.";
             System.out.println(errorMessage);
             throw new IssueFoundException(errorMessage);
-        } else {
-            System.out.println("Found no issues.");
         }
 
         return visit;
@@ -60,14 +60,14 @@ public class PatternTreeVisitor extends TreePathScanner<Void, Void> {
             types.asElement(expressionTypeMirror).accept(enumMembersVisitor, null);
 
             if (!allEnumMembersCovered(enumMembersVisitor.enumMembers, node.getCases())) {
-               error(node);
+                error(node);
             }
         }
         return super.visitSwitch(node, aVoid);
     }
 
     private boolean isEnumExpression(TypeMirror expressionTypeMirror) {
-        return types.directSupertypes(expressionTypeMirror).stream().anyMatch(t -> t.getKind().compareTo(enumType.getKind()) == 0);
+        return types.directSupertypes(expressionTypeMirror).stream().anyMatch(t -> types.erasure(t).equals(types.erasure(enumType)));
     }
 
     private boolean allEnumMembersCovered(List<Element> elements, List<? extends CaseTree> caseTrees) {
@@ -114,7 +114,7 @@ public class PatternTreeVisitor extends TreePathScanner<Void, Void> {
         @Override
         public Void visitType(TypeElement e, Void aVoid) {
             enumMembers = e.getEnclosedElements().stream()
-                    .filter(elem -> elem.asType().equals(e.asType()))
+                    .filter(elem -> elem.getKind().equals(ENUM_CONSTANT))
                     .collect(Collectors.toList());
             return null;
         }
