@@ -3,9 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/051d728372604558ae93c5780acbcb34)](https://www.codacy.com/app/gi.ciberon/SaneJava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xplosunn/SaneJava&amp;utm_campaign=Badge_Grade)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.xplosunn/sane-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.xplosunn/sane-java)
 
-This is a compiler plugin aimed at improving my quality of life when developing java. The name came from a joke. The
-only currently supported feature is checking that switches on enums are exhaustive. I do use linters such as Spotbugs 
-and PMD besides this in my projects.
+Java 8 compiler plugin that fails compilation if switches on enums are non-exhaustive.
 
 ## Adding to Maven
 
