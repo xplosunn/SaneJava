@@ -16,7 +16,7 @@ You need to add two things into your "pom.xml" file. One dependency:
 <dependency>
     <groupId>com.github.xplosunn</groupId>
     <artifactId>sane-java</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <scope>provided</scope>
 </dependency>
 ```
