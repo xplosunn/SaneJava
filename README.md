@@ -1,6 +1,5 @@
 # SaneJava
 
-[![Build Status](https://travis-ci.org/xplosunn/SaneJava.svg?branch=master)](https://travis-ci.org/xplosunn/SaneJava)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/051d728372604558ae93c5780acbcb34)](https://www.codacy.com/app/gi.ciberon/SaneJava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xplosunn/SaneJava&amp;utm_campaign=Badge_Grade)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.xplosunn/sane-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.xplosunn/sane-java)
 
