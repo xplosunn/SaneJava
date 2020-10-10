@@ -34,5 +34,5 @@ And one maven-compiler-plugin configuration (within build):
 ```console
 $ mvn compile
 $ mvn jar:jar
-$ javac -processorpath /target/sane-java-0.0.1.jar -Xplugin:SaneJava src/test/java/com/explosunn/sanejava/ExhaustiveEnumTest.java 
+$ javac -processorpath /target/sane-java-0.0.2.jar -Xplugin:SaneJava src/test/java/com/explosunn/sanejava/ExhaustiveEnumTest.java 
 ```
