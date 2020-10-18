@@ -5,6 +5,45 @@
 
 Java 8 compiler plugin that fails compilation if switches on enums are non-exhaustive.
 
+## Example
+
+Given the following enum:
+
+```java
+public enum E {
+    A,
+    B,
+    C
+}
+```
+This will not compile (case for `C` is missing):
+
+```java
+public int faultyMethod(E e) {
+    switch(e) {
+        case A:
+        case B:
+            return 1;
+        default:
+            return 0;
+    }
+}
+```
+And this will compile:
+
+```java
+public void goodMethod(E e) {
+     switch (e) {
+         case A:
+             break;
+         case B:
+             break;
+         case C:
+             break;
+     }
+}
+```
+
 ## Adding to Maven
 
 You need to add two things into your "pom.xml" file. One dependency:
