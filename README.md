@@ -4,6 +4,8 @@
 
 Java 8 compiler plugin that fails compilation if switches on enums are non-exhaustive.
 
+If you're using Java 13 or later, you should use [switch expressions](https://openjdk.org/jeps/361) instead.
+
 ## Example
 
 Given the following enum:
